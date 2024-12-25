@@ -1,4 +1,4 @@
-/* Enhanced styles */
+/* Animation Styles */
 .view-animation.ng-enter {
     transition: all 0.5s ease;
     opacity: 0;
@@ -10,18 +10,31 @@
     transform: translateY(0);
 }
 
+/* Navbar Styles */
 .navbar {
     margin-bottom: 20px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    background-color: #1f2937; /* Dark navy */
+    color: #f9fafb; /* Soft white */
 }
 
+.navbar a {
+    color: #f9fafb; /* Soft white */
+    text-decoration: none;
+}
+
+.navbar a:hover {
+    color: #60a5fa; /* Soft blue */
+}
+
+/* Loading Spinner Styles */
 .loading-spinner {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(255,255,255,0.8);
+    background: rgba(31, 41, 55, 0.8); /* Semi-transparent dark background */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -31,38 +44,75 @@
 .spinner {
     width: 50px;
     height: 50px;
-    border: 5px solid #f3f3f3;
-    border-top: 5px solid #3498db;
+    border: 5px solid #d1d5db; /* Light gray */
+    border-top: 5px solid #facc15; /* Vibrant yellow */
     border-radius: 50%;
     animation: spin 1s linear infinite;
 }
 
 @keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
 }
 
+/* Panel Styles */
 .panel {
     transition: all 0.3s ease;
     margin-bottom: 20px;
+    background-color: #ffffff; /* White background */
+    border: 1px solid #e5e7eb; /* Light gray border */
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
 }
 
 .panel:hover {
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
     transform: translateY(-2px);
 }
 
-.form-control:focus {
-    border-color: #3498db;
-    box-shadow: 0 0 5px rgba(52,152,219,0.5);
+/* Form Control Styles */
+.form-control {
+    border: 1px solid #d1d5db; /* Light gray border */
+    border-radius: 4px;
+    padding: 10px;
+    transition: box-shadow 0.2s ease, border-color 0.2s ease;
 }
 
+.form-control:focus {
+    border-color: #60a5fa; /* Soft blue */
+    box-shadow: 0 0 8px rgba(96, 165, 250, 0.5); /* Soft blue glow */
+}
+
+/* Button Styles */
 .btn-primary {
-    background-color: #3498db;
-    border-color: #2980b9;
+    background-color: #3b82f6; /* Bright blue */
+    border-color: #2563eb; /* Deeper blue */
+    color: #ffffff; /* White text */
+    border-radius: 4px;
+    padding: 10px 15px;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
 }
 
 .btn-primary:hover {
-    background-color: #2980b9;
-    border-color: #2472a4;
+    background-color: #2563eb; /* Deeper blue */
+    border-color: #1d4ed8; /* Darker blue */
+}
+
+/* Additional Suggestions */
+.btn-secondary {
+    background-color: #9ca3af; /* Neutral gray */
+    border-color: #6b7280; /* Darker gray */
+    color: #ffffff; /* White text */
+    border-radius: 4px;
+    padding: 10px 15px;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.btn-secondary:hover {
+    background-color: #6b7280; /* Darker gray */
+    border-color: #4b5563; /* Even darker gray */
 }

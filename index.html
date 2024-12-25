@@ -19,15 +19,16 @@
             </div>
             <div class="collapse navbar-collapse" ng-class="{'in': nav.isCollapsed}">
                 <ul class="nav navbar-nav">
-                    <li ng-class="{ active: nav.isActive('/')}"><a href="#/">Home</a></li>
-                    <li ng-class="{ active: nav.isActive('/products')}"><a href="#/products">Products</a></li>
-                    <li ng-class="{ active: nav.isActive('/users')}"><a href="#/users">Users</a></li>
-                    <li ng-class="{ active: nav.isActive('/contact')}"><a href="#/contact">Contact</a></li>
-                    <li ng-class="{ active: nav.isActive('/about')}"><a href="#/about">About</a></li>
+                    <li ng-class="{ active: nav.isActive('/')}"><a ng-href="#!/">Home</a></li>
+                    <li ng-class="{ active: nav.isActive('/products')}"><a ng-href="#!/products">Products</a></li>
+                    <li ng-class="{ active: nav.isActive('/users')}"><a ng-href="#!/users">Users</a></li>
+                    <li ng-class="{ active: nav.isActive('/contact')}"><a ng-href="#!/contact">Contact</a></li>
+                    <li ng-class="{ active: nav.isActive('/about')}"><a ng-href="#!/about">About</a></li>
                 </ul>
+                              
                 <ul class="nav navbar-nav navbar-right">
                     <li ng-class="{ active: nav.isActive('/profile')}">
-                        <a href="#/profile">Profile</a>
+                        <a href="#!/profile">Profile</a>
                     </li>
                 </ul>
             </div>
