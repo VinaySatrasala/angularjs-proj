@@ -116,3 +116,55 @@
     background-color: #6b7280; /* Darker gray */
     border-color: #4b5563; /* Even darker gray */
 }
+/* Product specific styles */
+.product-panel {
+    transition: all 0.3s ease;
+    height: 100%;
+}
+
+.product-panel:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.product-panel .panel-body {
+    padding: 15px;
+}
+
+.product-price {
+    font-size: 1.5em;
+    color: #2ecc71;
+    margin: 10px 0;
+    font-weight: bold;
+}
+
+.product-description {
+    margin: 15px 0;
+    min-height: 60px;
+}
+
+.review-item {
+    border-bottom: 1px solid #eee;
+    padding: 10px 0;
+}
+
+.review-item:last-child {
+    border-bottom: none;
+}
+
+.review-header {
+    margin-bottom: 5px;
+}
+
+.rating {
+    color: #f1c40f;
+    margin-right: 10px;
+}
+
+.reviewer {
+    font-weight: bold;
+}
+
+.review-date {
+    color: #777;
+}

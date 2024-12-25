@@ -1,0 +1,99 @@
+<div class="row">
+    <div class="col-md-12">
+        <ol class="breadcrumb">
+            <li><a href="#/products">Products</a></li>
+            <li class="active">{{vm.product.name}}</li>
+        </ol>
+    </div>
+    
+    <div class="col-md-6">
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <img ng-src="{{vm.product.imageUrl || '/assets/img/placeholder.png'}}" 
+                     class="img-responsive" alt="{{vm.product.name}}">
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-md-6">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">{{vm.product.name}}</h3>
+            </div>
+            <div class="panel-body">
+                <h4 class="text-primary">${{vm.product.price.toFixed(2)}}</h4>
+                
+                <div class="product-description">
+                    <h5>Description:</h5>
+                    <p>{{vm.product.description}}</p>
+                </div>
+                
+                <div class="product-specs" ng-if="vm.product.specifications">
+                    <h5>Specifications:</h5>
+                    <ul class="list-unstyled">
+                        <li ng-repeat="(key, value) in vm.product.specifications">
+                            <strong>{{key}}:</strong> {{value}}
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="form-group">
+                    <label>Quantity:</label>
+                    <select class="form-control" ng-model="vm.quantity" 
+                            ng-options="n for n in [1,2,3,4,5]">
+                    </select>
+                </div>
+                
+                <button class="btn btn-lg btn-success" 
+                        ng-click="vm.addToCart(vm.product, vm.quantity)">
+                    Add to Cart
+                </button>
+            </div>
+        </div>
+        
+        <!-- Reviews Section -->
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">Customer Reviews</h3>
+            </div>
+            <div class="panel-body">
+                <div ng-repeat="review in vm.product.reviews" class="review-item">
+                    <div class="review-header">
+                        <span class="rating">
+                            <i ng-repeat="star in [1,2,3,4,5]" 
+                               class="glyphicon" 
+                               ng-class="{'glyphicon-star': star <= review.rating, 'glyphicon-star-empty': star > review.rating}">
+                            </i>
+                        </span>
+                        <span class="reviewer">{{review.userName}}</span>
+                        <span class="review-date pull-right">{{review.date | date}}</span>
+                    </div>
+                    <p>{{review.comment}}</p>
+                </div>
+                
+                <!-- Add Review Form -->
+                <form name="reviewForm" ng-submit="reviewForm.$valid && vm.addReview()" novalidate>
+                    <div class="form-group">
+                        <label>Your Rating:</label>
+                        <select class="form-control" ng-model="vm.newReview.rating" required>
+                            <option value="5">5 Stars</option>
+                            <option value="4">4 Stars</option>
+                            <option value="3">3 Stars</option>
+                            <option value="2">2 Stars</option>
+                            <option value="1">1 Star</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Your Review:</label>
+                        <textarea class="form-control" ng-model="vm.newReview.comment" 
+                                  rows="3" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary" 
+                            ng-disabled="reviewForm.$invalid">
+                        Submit Review
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
