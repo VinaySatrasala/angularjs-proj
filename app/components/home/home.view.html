@@ -1,0 +1,13 @@
+<div class="jumbotron">
+    <h1>{{vm.title}}</h1>
+    <p>Welcome to the AngularJS application!</p>
+</div>
+
+<div class="row">
+    <div class="col-md-6" ng-repeat="item in vm.items">
+        <div class="panel panel-default">
+            <div class="panel-heading">{{item.title}}</div>
+            <div class="panel-body">{{item.description}}</div>
+        </div>
+    </div>
+</div>

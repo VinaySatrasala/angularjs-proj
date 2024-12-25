@@ -1,0 +1,61 @@
+<div class="row">
+    <div class="col-md-12">
+        <h2>Users Management</h2>
+        <div class="alert alert-danger" ng-if="vm.errorMessage">
+            {{vm.errorMessage}}
+        </div>
+    </div>
+    
+    <div class="col-md-6">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">Users List</h3>
+            </div>
+            <div class="panel-body">
+                <div class="list-group">
+                    <a href="" class="list-group-item" 
+                       ng-repeat="user in vm.users"
+                       ng-click="vm.selectUser(user)"
+                       ng-class="{'active': vm.currentUser.id === user.id}">
+                        {{user.name}}
+                        <span class="badge">{{user.role}}</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-md-6" ng-if="vm.currentUser">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h3 class="panel-title">Edit User</h3>
+            </div>
+            <div class="panel-body">
+                <form name="userForm" ng-submit="userForm.$valid && vm.updateUser(vm.currentUser)" novalidate>
+                    <div class="form-group">
+                        <label>Name</label>
+                        <input type="text" class="form-control" 
+                               ng-model="vm.currentUser.name" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input type="email" class="form-control" 
+                               ng-model="vm.currentUser.email" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Role</label>
+                        <select class="form-control" 
+                                ng-model="vm.currentUser.role" required>
+                            <option value="user">User</option>
+                            <option value="admin">Admin</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-primary" 
+                            ng-disabled="userForm.$invalid">
+                        Update User
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
